@@ -55,9 +55,9 @@
         <version>1.3-SNAPSHOT</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.hudson.main</groupId>
-      <artifactId>legacy-maven-plugin</artifactId>
-      <version>3.0.2-SNAPSHOT</version>
+      <groupId>org.hudsonci.plugins</groupId>
+      <artifactId>maven-plugin</artifactId>
+      <version>2.2.1</version>
     </dependency>
     <dependency>
       <groupId>org.jvnet.hudson.plugins</groupId>
