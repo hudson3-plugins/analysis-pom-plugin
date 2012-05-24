@@ -2,7 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-    <!-- Forked from version 1.37 of analysis-pom-plugin -->
+    <!-- Forked from Jenkins analysis-pom 1.37
+    
+        Parent is Hudson 3.0.0.
+        Change groupId to org.eclipse.hudson.plugins.
+        Add dependency on jfreechart-plugin extracted from hudson-core.
+        Exclude xerces/xml-apis from maven-plugin so use the same as Hudson.
+    
+    -->
 
     <parent>
       <groupId>org.eclipse.hudson.plugins</groupId>
@@ -10,11 +17,10 @@
       <version>3.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.eclipse.hudson.plugins</groupId>
     <artifactId>analysis-pom</artifactId>
     <packaging>pom</packaging>
     <name>Static Analysis Plug-ins Parent POM</name>
-    <version>3.0.0-M2</version>
+    <version>3.0.0-SNAPSHOT</version>
 
     <properties>
       <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
@@ -58,6 +64,16 @@
       <groupId>org.hudsonci.plugins</groupId>
       <artifactId>maven-plugin</artifactId>
       <version>2.2.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.jvnet.hudson.plugins</groupId>
@@ -118,13 +134,6 @@
       <url>http://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
-  
-  <!--distributionManagement>
-    <repository>
-      <id>maven.jenkins-ci.org</id>
-      <url>http://maven.jenkins-ci.org:8081/content/repositories/releases/</url>
-    </repository>
-  </distributionManagement-->
   
 </project>  
 
