@@ -22,7 +22,7 @@
     <!-- Hudson's use of project.artifactId forces this version
          to be the same as the hudson-plugin-parent version.
          Should fix this sometime. -->
-    <version>3.0.0-RC2-SNAPSHOT</version>
+    <version>3.0.0-RC2</version>
 
     <properties>
       <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
