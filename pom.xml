@@ -1,67 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-    <!-- Forked from Jenkins analysis-pom 1.40
-    
-        Parent is Hudson 3.0.0.
-        Change groupId to org.eclipse.hudson.plugins.
-        Exclude xerces/xml-apis from maven-plugin so use the same as Hudson.
-    
-    -->
-
-    <parent>
-      <groupId>org.eclipse.hudson.plugins</groupId>
-      <artifactId>hudson-plugin-parent</artifactId>
-      <version>3.0.0-RC2</version>
-    </parent>
-
-    <groupId>org.hudsonci.plugins</groupId>
-    <artifactId>analysis-pom</artifactId>
-    <packaging>pom</packaging>
-    <name>Static Analysis Plug-ins Parent POM</name>
-    <!-- Hudson's use of project.artifactId forces this version
-         to be the same as the hudson-plugin-parent version.
-         Should fix this sometime. -->
-    <version>3.0.0-RC3-SNAPSHOT</version>
-
-    <properties>
-      <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-      <analysis-config.version>1.0.17</analysis-config.version>
-      <hudsonTags>misc</hudsonTags>
-    </properties>
-
-    <licenses>
-      <license>
-        <name>MIT license</name>
-        <comments>All source code is under the MIT license.</comments>
-      </license>
-      <license>
-        <name>BSD license</name>
-        <comments>All YUI source code is under the BSD license.</comments>
-      </license>
-    </licenses>
-
-    <url>http://wiki.hudson-ci.org/display/HUDSON/Static+Code+Analysis+Plug-ins</url>
-
-  <distributionManagement>
-         <snapshotRepository>
-             <id>sonatype-nexus-snapshots</id>
-             <name>Sonatype Nexus Snapshots</name>
-             <url>${sonatypeOssDistMgmtSnapshotsUrl}</url>
-         </snapshotRepository>
-         <repository>
-             <id>sonatype-nexus-staging</id>
-             <name>Nexus Release Repository</name>
-             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-         </repository>
-  </distributionManagement>
-  
+  <parent>
+    <groupId>org.eclipse.hudson.plugins</groupId>
+    <artifactId>hudson-plugin-parent</artifactId>
+    <version>3.0.0-SNAPSHOT</version>
+    <relativePath />
+  </parent>
+  <!-- Forked from version 1.40 -->
+  <groupId>org.hudsonci.plugins</groupId>
+  <artifactId>analysis-pom</artifactId>
+  <packaging>pom</packaging>
+  <name>Static Analysis Plug-ins Parent POM</name>
+  <version>3.0.0</version>
+  <properties>
+    <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+    <analysis-config.version>1.0.17</analysis-config.version>
+    <hudsonTags>misc</hudsonTags>
+  </properties>
+  <licenses>
+    <license>
+      <name>MIT license</name>
+      <comments>All source code is under the MIT license.</comments>
+    </license>
+    <license>
+      <name>BSD license</name>
+      <comments>All YUI source code is under the BSD license.</comments>
+    </license>
+  </licenses>
+  <url>http://wiki.hudson-ci.org/x/CwDgAQ</url>
   <scm>
-      <connection>scm:git:git://github.com/hudson3-plugins/${project.artifactId}-plugin.git</connection>
-      <developerConnection>scm:git:git@github.com:hudson3-plugins/${project.artifactId}-plugin.git</developerConnection>
-      <url>https://github.com/hudson3-plugins/${project.artifactId}-plugin</url>
+    <connection>scm:git:git://github.com/hudson3-plugins/analysis-pom.git</connection>
+    <developerConnection>scm:git:git@github.com:hudson3-plugins/analysis-pom.git</developerConnection>
+    <url>https://github.com/hudson3-plugins/analysis-pom</url>
   </scm>
-  
+  <ciManagement>
+    <system>Jenkins</system>
+    <url>http://www.faktorzehn.org:8081/view/Jenkins/</url>
+  </ciManagement>
   <developers>
     <developer>
       <name>Ulli Hafner</name>
@@ -69,37 +45,17 @@
       <email>ullrich.hafner@gmail.com</email>
     </developer>
   </developers>
-
   <dependencies>
     <dependency>
       <groupId>org.hudsonci.plugins</groupId>
       <artifactId>maven-plugin</artifactId>
+      <optional>true</optional>
       <version>2.2.1</version>
-      <exclusions>
-        <exclusion>
-          <groupId>xerces</groupId>
-          <artifactId>xercesImpl</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>xml-apis</groupId>
-          <artifactId>xml-apis</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.ant</groupId>
-          <artifactId>ant</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.apache.ant</groupId>
-      <artifactId>ant</artifactId>
-      <version>1.8.2</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jvnet.hudson.plugins</groupId>
+      <groupId>org.hudsonci.plugins</groupId>
       <artifactId>dashboard-view</artifactId>
-      <version>1.8.1</version>
+      <version>2.3-h-2</version>
       <optional>true</optional>
     </dependency>
     <dependency>
@@ -134,38 +90,222 @@
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.13</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-codec</groupId>
-      <artifactId>commons-codec</artifactId>
-      <version>1.4</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.1.1</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.sonatype.sisu</groupId>
-      <artifactId>sisu-inject-bean</artifactId>
-      <version>2.2.3</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.sonatype.sisu</groupId>
-      <artifactId>sisu-guice</artifactId>
-      <version>3.0.3</version>
-      <!--classifier>noaop</classifier-->
-      <scope>provided</scope>
-    </dependency>
   </dependencies>
-
-</project>  
-
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>target/generated-sources/localizer</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>animal-sniffer-maven-plugin</artifactId>
+        <version>1.8</version>
+        <configuration>
+          <signature>
+            <groupId>org.codehaus.mojo.signature</groupId>
+            <artifactId>java15</artifactId>
+            <version>1.0</version>
+          </signature>
+        </configuration>
+        <executions>
+          <execution>
+            <id>jdk5-compatibility-check</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.hudson.tools</groupId>
+          <artifactId>maven-hpi-plugin</artifactId>
+          <configuration>
+            <disabledTestInjection>true</disabledTestInjection>
+          </configuration>
+          <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>cobertura-maven-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+            <format>xml</format>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>2.9</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.jvnet.hudson.plugins</groupId>
+              <artifactId>analysis-config</artifactId>
+              <version>${analysis-config.version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <configLocation>checkstyle-configuration.xml</configLocation>
+            <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+            <propertyExpansion>config_loc=${project.build.directory}/</propertyExpansion>
+            <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>2.7.1</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.jvnet.hudson.plugins</groupId>
+              <artifactId>analysis-config</artifactId>
+              <version>${analysis-config.version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <rulesets>
+              <ruleset>pmd-configuration.xml</ruleset>
+            </rulesets>
+            <targetJdk>1.5</targetJdk>
+            <excludeRoots>
+              <excludeRoot>target/generated-sources/localizer</excludeRoot>
+            </excludeRoots>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>2.4.0</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.jvnet.hudson.plugins</groupId>
+              <artifactId>analysis-config</artifactId>
+              <version>${analysis-config.version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <xmlOutput>true</xmlOutput>
+            <findbugsXmlOutput>true</findbugsXmlOutput>
+            <threshold>Low</threshold>
+            <effort>Max</effort>
+            <relaxed>false</relaxed>
+            <fork>false</fork>
+            <excludeFilterFile>findbugs-exclusion-filter.xml</excludeFilterFile>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.eclipse.hudson.tools</groupId>
+                    <artifactId>maven-hpi-plugin</artifactId>
+                    <versionRange>[3.0.0,)</versionRange>
+                    <goals>
+                      <goal>insert-test</goal>
+                      <goal>apt-compile</goal>
+                      <goal>resolve-test-dependencies</goal>
+                      <goal>test-hpl</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.jvnet.localizer</groupId>
+                    <artifactId>maven-localizer-plugin</artifactId>
+                    <versionRange>[1.12,)</versionRange>
+                    <goals>
+                      <goal>generate</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <versionRange>[1.0,)</versionRange>
+                    <goals>
+                      <goal>display-info</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.groovy.maven</groupId>
+                    <artifactId>gmaven-plugin</artifactId>
+                    <versionRange>[1.0-rc-5,)</versionRange>
+                    <goals>
+                      <goal>generateTestStubs</goal>
+                      <goal>testCompile</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>com.cloudbees</groupId>
+                    <artifactId>maven-license-plugin</artifactId>
+                    <versionRange>[1.1,)</versionRange>
+                    <goals>
+                      <goal>process</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.kohsuke</groupId>
+                    <artifactId>access-modifier-checker</artifactId>
+                    <versionRange>[1.0,)</versionRange>
+                    <goals>
+                      <goal>enforce</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <description>Static Analysis Plug-ins Parent POM</description>
+</project>
