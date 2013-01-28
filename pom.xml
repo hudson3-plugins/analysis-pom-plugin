@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.eclipse.hudson.plugins</groupId>
     <artifactId>hudson-plugin-parent</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
+    <version>3.0.0</version>
     <relativePath />
   </parent>
   <!-- Forked from version 1.40 -->
@@ -12,7 +12,7 @@
   <artifactId>analysis-pom</artifactId>
   <packaging>pom</packaging>
   <name>Static Analysis Plug-ins Parent POM</name>
-  <version>3.0.0</version>
+  <version>3.0.0-SNAPSHOT</version>
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
     <analysis-config.version>1.0.17</analysis-config.version>
