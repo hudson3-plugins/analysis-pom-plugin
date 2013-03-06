@@ -14,7 +14,7 @@
   <packaging>pom</packaging>
   <name>Static Analysis Plug-ins Parent POM</name>
   <description>Static Analysis Plug-ins Parent POM</description>
-  <version>1.42-h-1</version>
+  <version>1.42-h-2-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
