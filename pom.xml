@@ -6,7 +6,7 @@
     <groupId>org.eclipse.hudson.plugins</groupId>
     <artifactId>hudson-plugin-parent</artifactId>
     <version>3.0.1-M1</version>
-  <relativePath/>
+  <relativePath />
   </parent>
 
   <groupId>org.hudsonci.plugins</groupId>
@@ -14,7 +14,7 @@
   <packaging>pom</packaging>
   <name>Static Analysis Plug-ins Parent POM</name>
   <description>Static Analysis Plug-ins Parent POM</description>
-  <version>1.42-h-1-SNAPSHOT</version>
+  <version>1.42-h-1</version>
 
   <properties>
     <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
@@ -33,7 +33,7 @@
     <maven-checkstyle-plugin.version>2.9.1</maven-checkstyle-plugin.version>
     <maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
     <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
-  <hudsonTags/>
+  <hudsonTags />
   </properties>
 
   <licenses>
